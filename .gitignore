@@ -1,5 +1,7 @@
 api_details.txt*
 imagga_try.py~
+*.db
+*.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
