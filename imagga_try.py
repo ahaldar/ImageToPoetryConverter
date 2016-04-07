@@ -1,4 +1,5 @@
 import requests
+import dataset()
 
 api_file = open("api_details.txt", "r")
 
@@ -15,3 +16,6 @@ for tag in text['results'][0]['tags']:
 	if tag['confidence'] > 70:
 		print tag['tag'] , ' ', tag['confidence']
 
+for tag in text['results'][0]['tags']:
+    if tag['confidence'] > 70:
+        table.insert(url=image_url, tag=tag['tag'], confidence=tag['confidence'])
