@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import requests
 import dataset
 
@@ -6,6 +7,8 @@ api_file = open("api_details.txt", "r")
 api_key = api_file.readline().strip()
 api_secret = api_file.readline().strip()
 api_file.close()
+db = dataset.connect('sqlite:///:memory:')
+table = db['links_table']
 #image_url = 'http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg'
 
 
@@ -17,8 +20,13 @@ def get_tags(image_url):
 	for tag in text['results'][0]['tags']:
 		if tag['confidence'] > 70:
 			tag_list += (tag['tag'], tag['confidence'])
-			table.insert(url=image_url, tag=tag['tag'], confidence=tag['confidence'])
+			table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
+			print_database(image_url)
 	return tag_list
+
+def print_database(image_url):
+	print table.find_one(url=image_url)
+
 
 def main():
 	print "here"
