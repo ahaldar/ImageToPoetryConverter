@@ -1,4 +1,5 @@
 import requests
+import dataset()
 
 api_file = open("api_details.txt", "r")
 
@@ -22,3 +23,6 @@ def main():
 	image_url = raw_input().strip()
 	print get_tags(image_url)
 
+for tag in text['results'][0]['tags']:
+    if tag['confidence'] > 70:
+        table.insert(url=image_url, tag=tag['tag'], confidence=tag['confidence'])
