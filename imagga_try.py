@@ -7,7 +7,7 @@ api_file = open("api_details.txt", "r")
 api_key = api_file.readline().strip()
 api_secret = api_file.readline().strip()
 api_file.close()
-db = dataset.connect('sqlite:///:memory:')
+db = dataset.connect('sqlite:///testing.db')
 table = db['links_table']
 #image_url = 'http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg'
 
