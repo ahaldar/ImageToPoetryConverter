@@ -1,5 +1,6 @@
 import requests
 
+
 api_key = ''
 api_secret = ''
 image_url = 'http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg'
