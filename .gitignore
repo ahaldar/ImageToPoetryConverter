@@ -2,7 +2,7 @@ api_details.txt*
 imagga_try.py~
 *.db
 *.sqlite3
-
+*.sublime*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
