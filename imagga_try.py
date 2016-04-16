@@ -45,14 +45,13 @@ def get_poem(tag):
 	for poem in response_cap.json():
 		if poem['linecount'] == min_lc:
 			poem_string = json.dumps(poem)
-			tag_poem_table.insert(dict(tag=tag, poem=poem_string)
+			tag_poem_table.insert(dict(tag=tag, poem=poem_string))
 			return poem_string
 	for poem in response_small.json():
 		if poem['linecount'] == min_lc:
 			poem_string = json.dumps(poem)
-			tag_poem_table.insert(dict(tag=tag, poem=poem_string)
+			tag_poem_table.insert(dict(tag=tag, poem=poem_string))
 			return poem_string
-
 
 def main():
 	print "here"
