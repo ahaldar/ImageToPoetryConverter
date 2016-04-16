@@ -20,10 +20,16 @@ def get_tags(image_url):
 	text =	response.json()
 	tag_list = []
 	for tag in text['results'][0]['tags']:
-		if tag['confidence'] > 70:
+		if tag['confidence'] > 50:
 			tag_list.append((tag['tag'], tag['confidence']))
 			image_tag_table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
 			print_database(image_url)
+
+	if not tag_list:
+		tag = text['results'][0]['tags'][0]
+		tag_list.append((tag['tag'], tag['confidence']))
+		image_tag_table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
+		print_database(image_url)
 	return tag_list
 
 def print_database(image_url):
