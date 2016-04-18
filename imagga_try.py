@@ -23,14 +23,14 @@ def get_tags(image_url):
 		if tag['confidence'] > 15:
 			tag_list.append((tag['tag'], tag['confidence']))
 			image_tag_table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
-			print_database(image_url)
 
 	if not tag_list:
 		tag = text['results'][0]['tags'][0]
 		tag_list.append((tag['tag'], tag['confidence']))
 		image_tag_table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
-		print_database(image_url)
 	return tag_list
+
+	print_database(image_url)
 
 def print_database(image_url):
 	print image_tag_table.find_one(url=image_url)
