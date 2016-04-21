@@ -11,6 +11,7 @@ api_file.close()
 db = dataset.connect('sqlite:///testing.db')
 image_tag_table = db['links_table']
 tag_poem_table = db['poem_table']
+result_rating_table = db['rating_table']
 #image_url = 'http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg'
 
 
@@ -28,9 +29,9 @@ def get_tags(image_url):
 		tag = text['results'][0]['tags'][0]
 		tag_list.append((tag['tag'], tag['confidence']))
 		image_tag_table.insert(dict(url=image_url, tag=tag['tag'], confidence=tag['confidence']))
-	return tag_list
-
+	
 	print_database(image_url)
+	return tag_list
 
 def print_database(image_url):
 	print image_tag_table.find_one(url=image_url)
@@ -59,11 +60,19 @@ def get_poem(tag):
 			tag_poem_table.insert(dict(tag=tag, poem=poem_string))
 			return poem_string
 
+def get_rating(image_url, poem):
+	rating = raw_input("Please enter a rating from 1 to 10: ").strip()
+	# print("In get_rating")
+	# print(type(poem))
+	result_rating_table.insert(dict(url=image_url, poem=str(poem), rating=rating))
+
+
 def main():
 	print "here"
 	image_url = raw_input("Please enter the link you want to get a poem from:").strip()
 	tags = get_tags(image_url)
 	poem = json.loads(get_poem(tags[0][0]))
 	print poem
+	get_rating(image_url, poem)
 if __name__ == "__main__":
 	main()
