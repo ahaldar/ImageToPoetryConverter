@@ -72,6 +72,7 @@ def main():
 	image_url = raw_input("Please enter the link you want to get a poem from:").strip()
 	tags = get_tags(image_url)
 	poem = json.loads(get_poem(tags[0][0]))
+	print_tag_poem(tags[0][0])
 	print poem
 	get_rating(image_url, poem)
 if __name__ == "__main__":
