@@ -65,7 +65,9 @@ def get_rating(image_url, poem):
 	# print("In get_rating")
 	# print(type(poem))
 	result_rating_table.insert(dict(url=image_url, poem=str(poem), rating=rating))
-
+def get_rating_from_front_end(image_url, poem, rating):
+	result_rating_table.insert(dict(url=image_url, poem=str(poem), rating=rating))
+	
 
 def main():
 	print "here"
