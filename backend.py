@@ -3,6 +3,25 @@ import requests
 import dataset
 import json
 
+from flask import Flask
+
+backend = Flask(__name__)
+
+'''
+Running the program:
+Run python backend.py
+Open up the browser and go to 127.0.0.1/url/<path>
+
+Example URL http://127.0.0.1:5000/url/http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg
+'''
+@backend.route('/url/<path:path>')
+def url(path):
+    image_url = path
+    tags = get_tags(image_url)
+    poem = json.loads(get_poem(tags[0][0]))
+    print_tag_poem(tags[0][0])
+    return str(poem)
+
 api_file = open("api_details.txt", "r")
 
 api_key = api_file.readline().strip()
@@ -77,5 +96,5 @@ def main():
 	print_tag_poem(tags[0][0])
 	print poem
 	get_rating(image_url, poem)
-if __name__ == "__main__":
-	main()
+if __name__ == '__main__':
+    backend.run(debug=True, host='0.0.0.0')
