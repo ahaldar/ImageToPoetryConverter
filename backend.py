@@ -6,8 +6,10 @@ import flask
 
 from flask import Flask
 from flask import jsonify
+from flask import render_template
 
 backend = Flask(__name__)
+# frontend = Flask(__name__, template_folder='Frontend')
 
 '''
 Running the program:
@@ -16,6 +18,10 @@ Open up the browser and go to 127.0.0.1/url/<path>
 Blah blah
 Example URL http://127.0.0.1:5000/url/http://docs.imagga.com/static/images/docs/sample/japan-605234_1280.jpg
 '''
+@backend.route("/")
+def index():
+    return render_template('index.html')
+
 @backend.route('/url/<path:path>')
 def url(path):
     image_url = path
