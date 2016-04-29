@@ -91,6 +91,11 @@ def get_poem(taglist):
     found = False
     for tagJson in taglist[:count]:
         tag = tagJson[0]
+        if(tag_poem_table.find_one(tag=tag)):
+                print_tag_poem(tag)
+                return tag_poem_table.find_one(tag=tag)['poem']
+    for tagJson in taglist[:count]:
+        tag = tagJson[0]
         try:
             if(tag_poem_table.find_one(tag=tag)):
                 print_tag_poem(tag)
