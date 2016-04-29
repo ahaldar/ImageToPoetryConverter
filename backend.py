@@ -20,8 +20,10 @@ Example URL http://127.0.0.1:5000/url/http://docs.imagga.com/static/images/docs/
 def url(path):
     image_url = path
     tags = get_tags(image_url)
+    print "tags are"
+    for tag in tags:
+        print tag[0]
     poem = json.loads(get_poem(tags))
-    print_tag_poem(tags[0][0])
     return flask.jsonify(**poem)
 
 
@@ -78,6 +80,7 @@ def get_poem(taglist):
         tag = tagJson[0]
         try:
             if(tag_poem_table.find_one(tag=tag)):
+                print_tag_poem(tag)
                 return tag_poem_table.find_one(tag=tag)['poem']
             response_cap = requests.get('http://poetrydb.org/lines/' + tag.title()) 
             response_small = requests.get('http://poetrydb.org/lines/' + tag.lower())
