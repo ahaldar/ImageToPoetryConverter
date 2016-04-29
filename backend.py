@@ -22,6 +22,10 @@ Example URL http://127.0.0.1:5000/url/http://docs.imagga.com/static/images/docs/
 def index():
     return render_template('index.html')
 
+@backend.route("/index2")
+def index2():
+    return render_template('index2.html')
+
 @backend.route('/url/<path:path>')
 def url(path):
     image_url = path

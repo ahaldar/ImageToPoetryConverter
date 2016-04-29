@@ -1,4 +1,4 @@
-h1{
+h1 #poet{
     color: #2DB0C4; 
     text-align: center;
     font-family: 'Avenir Next';
@@ -13,7 +13,7 @@ img {
     border: 5px solid #1f5161;
 }
 
-p{
+p #poem{
     text-align: center;
     color: #48A7C5;
     margin-bottom: 50px;

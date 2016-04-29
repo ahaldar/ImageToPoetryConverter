@@ -11,13 +11,27 @@
     </head>
    
     <body>
-        <h1>Image to Poetry Converter</h1>
-        <form>
-            <input type='url' name='imageurl' placeholder='Enter Image URL' id='input_url' value=''><br>
-            <button type='submit' value='Submit' id='submit_button'>Submit</button>
+       <div id="screen1">
+            <h1>Image to Poetry Converter</h1>
+            <form>
+                <input type='url' name='imageurl' placeholder='Enter Image URL' id='input_url' value=''><br>
+                <button type='submit' value='Submit' id='submit_button'>Submit</button>
 
-        </form>
-        <footer>Created by Sakshi Udeshi, Siddharth Dinesh, Ruchi Ookalkar</footer>
+            </form>
+        </div>
+
+        <div id="screen2">
+            <img id="image"src='https://upload.wikimedia.org/wikipedia/commons/5/51/Small_Red_Rose.JPG'>
+            <h1 id='poet'></h1>
+            <p id='poem'></p>
+            <form onsubmit='return false' oninput='level.value = rlevel.valueAsNumber' action='#' method='post'>
+              <label for='rating'>Relevancy Rating</label> <br>
+              <input class='rlevel' id='rating' type='range' min='1' max='10' value='5'> 
+              <!-- <output for='rating' name='level'>5</output>/10 --><br>
+              <button type='submit' value='Submit' id='sakshibutton'>Submit</button>
+            </form>
+        </div><!-- 
+        <footer>Created by Sakshi Udeshi, Siddharth Dinesh, Ruchi Ookalkar</footer> -->
     </body>
     
 </html>

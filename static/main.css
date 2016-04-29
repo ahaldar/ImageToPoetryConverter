@@ -1,5 +1,5 @@
 
-h1 {
+#screen1 h1{
     color: #2DB0C4;
     text-align: center;
     font-size: 3em ;
@@ -8,8 +8,11 @@ h1 {
     left: 33%;
         
 }
+#screen2{
+    display: none;
+}
 
-form {
+#screen1 form{
     position: absolute;
     top: 40%;
     left: 40%;
@@ -71,4 +74,33 @@ color: #2DB0C4;
  
 input:-ms-input-placeholder {  
 color: #2DB0C4;  
+}
+h1 #poet{
+    color: #2DB0C4; 
+    text-align: center;
+    font-family: 'Avenir Next';
+    text-decoration: underline;
+}
+
+img {
+    width: 30%;
+    height: 20%;
+    display: block;
+    margin: auto;
+    border: 5px solid #1f5161;
+}
+
+p #poem{
+    text-align: center;
+    color: #48A7C5;
+    margin-bottom: 50px;
+    font-size: large;
+}
+
+label {
+    font-size: large;
+}
+
+div {
+    text-align: center;
 }
