@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="new.css">
+    </head>
+    <body>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Small_Red_Rose.JPG">
+        <h1 id="poet"></h1>
+        <p id="poem"></p>
+        <form onsubmit="return false" oninput="level.value = rlevel.valueAsNumber" action="#" method="post">
+          <label for="rating">Relevancy Rating</label> <br>
+          <input class="rlevel" id="rating" type="range" min="1" max="10" value="5"> 
+          <output for="rating" name="level">5</output>/10
+        </form>
+    </body>
+    <script>
+            var poem = "A house that lacks, seemingly, mistress and master, <br> With doors that none but the wind ever closes, <br> Its floor all littered with glass and with plaster; <br> It stands in a garden of old-fashioned roses. <br>I pass by that way in the gloaming with Mary <br>I wonder, I say, who the owner of those is. <br>Oh, no one you know, she answers me airy, <br> But one we must ask if we want any roses.'<br>A house that lacks, seemingly, mistress and master, <br> With doors that none but the wind ever closes, <br> Its floor all littered with glass and with plaster; <br> It stands in a garden of old-fashioned roses. <br>I pass by that way in the gloaming with Mary <br>I wonder, I say, who the owner of those is. <br>Oh, no one you know, she answers me airy, <br> But one we must ask if we want any roses.' ";
+            var poet = "Robert Frost";
+            var poemname = "Asking for Roses";
+            document.getElementById("poem").innerHTML = poem;
+            document.getElementById("poet").innerHTML = poemname+" by "+poet;
+    </script>
+</html>
