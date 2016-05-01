@@ -8,7 +8,10 @@ from flask import Flask
 from flask import jsonify
 from flask import render_template
 
+from flask.ext.cors import CORS
+
 backend = Flask(__name__)
+cors = CORS(backend, resources={r"/url/*": {"origins": "*"}})
 # frontend = Flask(__name__, template_folder='Frontend')
 
 '''
