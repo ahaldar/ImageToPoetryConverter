@@ -23,10 +23,12 @@ Example URL http://127.0.0.1:5000/url/http://docs.imagga.com/static/images/docs/
 '''
 @backend.route("/")
 def index():
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return render_template('index.html')
 
 @backend.route("/index2")
 def index2():
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return render_template('index2.html')
 
 @backend.route('/url/<path:path>')
@@ -37,11 +39,14 @@ def url(path):
     for tag in tags:
         print tag[0]
     poem = json.loads(get_poem(tags))
+    resp = flask.Response(flask.jsonify(**poem))
+    resp.headers.add('Access-Control-Allow-Origin', '*')
     return flask.jsonify(**poem)
 
 
 @backend.route('/rating/<rating_val>/<poem>/<path:path>')
 def rating(rating_val, poem, path):
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     print 'rating is ' + ' ' + str(rating_val)
     print 'poem is ' + poem
     print 'path is ' + path
