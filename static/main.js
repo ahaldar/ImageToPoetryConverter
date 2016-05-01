@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     
-    var submit_url = 'http://127.0.0.1:5000/url'+input_url;
+    var submit_url = 'http://128.199.198.7:5000/url'+input_url;
     var myEl = document.getElementById('submit_button');
     myEl.addEventListener('click', function(e) {
     	e.preventDefault();
@@ -9,7 +9,7 @@ $(document).ready(function() {
         console.log('Hello world');
         $.ajax({
 		   //url: submit_url, //TBD
-		   url: 'http://127.0.0.1:5000/url/' + input_url_link,
+		   url: 'http://128.199.198.7:5000/url/' + input_url_link, 
 		   type: 'GET',
 		   data: {
 		      //obj: input_url
